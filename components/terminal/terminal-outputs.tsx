@@ -1,6 +1,6 @@
 export function WelcomeMessage() {
   return (
-    <div className={`text-primary space-y-2`}>
+    <div className={`text-primary space-y-2 animate-in fade-in duration-500`}>
       <div className="overflow-x-auto">
         <pre
           className={`dark:text-[#89b4fa] text-[#1e66f5] text-[8px] xs:text-[10px] sm:text-xs whitespace-pre`}
@@ -29,7 +29,7 @@ export function WelcomeMessage() {
 
 export function HelpOutput() {
   return (
-    <div className="space-y-2 text-primary">
+    <div className="space-y-2 text-primary animate-in slide-in-from-bottom-2 duration-300">
       <div className="text-blue mb-3">Available Commands:</div>
       <div className="grid grid-cols-1 gap-2">
         <div className="flex gap-3">
@@ -77,7 +77,9 @@ export function HelpOutput() {
 
 export function AboutOutput() {
   return (
-    <div className={`space-y-3 text-primary`}>
+    <div
+      className={`space-y-3 text-primary animate-in slide-in-from-left-4 duration-500`}
+    >
       <div className="text-blue">$ cat about.txt</div>
       <div className={`space-y-2 pl-4 border-l-2 border-blue`}>
         <p className="text-pink">{`Hey there! I'm a Full-Stack Developer 👋`}</p>
@@ -101,7 +103,9 @@ export function AboutOutput() {
 
 export function SkillsOutput() {
   return (
-    <div className="space-y-3 text-primary">
+    <div
+      className={`space-y-3 text-primary animate-in slide-in-from-left-4 duration-500`}
+    >
       <div className="text-blue">$ cat skills.json</div>
       <div className="pl-4">
         <pre>
@@ -133,7 +137,9 @@ export function SkillsOutput() {
 
 export function ProjectsOutput() {
   return (
-    <div className={`space-y-4 text-primary`}>
+    <div
+      className={`space-y-3 text-primary animate-in slide-in-from-left-4 duration-500`}
+    >
       <div className="text-blue">$ ls projects/</div>
       <div className="space-y-4 pl-4">
         <div className="space-y-1">
@@ -159,7 +165,9 @@ export function ProjectsOutput() {
 
 export function ExperienceOutput() {
   return (
-    <div className={`space-y-4 text-primary`}>
+    <div
+      className={`space-y-3 text-primary animate-in slide-in-from-left-4 duration-500`}
+    >
       <div className="text-blue">$ git log --experience</div>
       <div className="space-y-4 pl-4">
         <div className={`space-y-1 border-l-2 border-green pl-3`}>
@@ -197,7 +205,9 @@ export function ExperienceOutput() {
 
 export function ContactOutput() {
   return (
-    <div className={`space-y-3 text-primary`}>
+    <div
+      className={`space-y-3 text-primary animate-in slide-in-from-left-4 duration-500`}
+    >
       <div className="text-blue">$ cat contact.md</div>
       <div className={`space-y-2 pl-4 border-l-2 border-green`}>
         <div className="text-pink">{`📫 Let's Connect!`}</div>

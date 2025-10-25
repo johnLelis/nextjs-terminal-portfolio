@@ -37,7 +37,6 @@ export function Terminal({
   onThemeChange,
 }: TerminalProps) {
   const [input, setInput] = useState("");
-
   // Initialize history with welcome message directly
   const [history, setHistory] = useState<CommandOutput[]>(() => [
     {
@@ -270,7 +269,7 @@ export function Terminal({
 function Prompt({ theme }: { theme: "dark" | "light" }) {
   const folderBg = theme === "dark" ? "bg-[#89b4fa]" : "bg-[#1e66f5]";
   const gitBg = theme === "dark" ? "bg-[#a6e3a1]" : "bg-[#40a02b]";
-  const chevronColor = theme === "dark" ? "text-[#89b4fa]" : "text-[#1e66f5]";
+  const chevronColor = theme === "dark" ? "text-[#a6e3a1]" : "text-[#40a02b]";
   const textColor = theme === "dark" ? "text-[#1e1e2e]" : "text-[#eff1f5]";
 
   return (
@@ -287,7 +286,9 @@ function Prompt({ theme }: { theme: "dark" | "light" }) {
         <IconGitBranch className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
         <span>main</span>
       </div>
-      <IconChevronRight className={`w-3 h-3 sm:w-4 sm:h-4 ${chevronColor}`} />
+      <IconChevronRight
+        className={`w-3 h-3 sm:w-4 sm:h-4 ${chevronColor} animate-pulse`}
+      />
     </div>
   );
 }
