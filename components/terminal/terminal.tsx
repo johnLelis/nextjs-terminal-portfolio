@@ -42,7 +42,7 @@ export function Terminal({
   const [history, setHistory] = useState<CommandOutput[]>(() => [
     {
       command: "",
-      output: <WelcomeMessage theme={theme} />,
+      output: <WelcomeMessage />,
     },
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
@@ -62,6 +62,17 @@ export function Terminal({
     if (!input.trim()) return;
 
     const trimmedInput = input.trim();
+
+    if (trimmedInput === "clear") {
+      setHistory([
+        {
+          command: "",
+          output: null,
+        },
+      ]);
+      setInput("");
+      return;
+    }
     const output = executeCommand(trimmedInput);
 
     setHistory([...history, { command: trimmedInput, output }]);
@@ -102,17 +113,17 @@ export function Terminal({
 
     switch (command) {
       case "help":
-        return <HelpOutput theme={theme} />;
+        return <HelpOutput />;
       case "about":
-        return <AboutOutput theme={theme} />;
+        return <AboutOutput />;
       case "skills":
-        return <SkillsOutput theme={theme} />;
+        return <SkillsOutput />;
       case "projects":
-        return <ProjectsOutput theme={theme} />;
+        return <ProjectsOutput />;
       case "experience":
-        return <ExperienceOutput theme={theme} />;
+        return <ExperienceOutput />;
       case "contact":
-        return <ContactOutput theme={theme} />;
+        return <ContactOutput />;
       case "theme": {
         const newTheme = args[1]?.toLowerCase();
         if (
