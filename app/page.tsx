@@ -1,10 +1,6 @@
 import App from "@/components/app";
 
 const Home = () => {
-  return (
-    <>
-      <App />
-    </>
-  );
+  return <App />;
 };
 export default Home;

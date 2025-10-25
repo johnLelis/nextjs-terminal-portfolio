@@ -16,8 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Catppuccin Theme App",
-  description: "A beautiful Next.js app with Catppuccin theme",
+  title: "John Stephene Lelis",
+  description: "My Terminal Portfolio",
+  icons: {
+    icon: "/ghost.png",
+  },
 };
 
 export default function RootLayout({
