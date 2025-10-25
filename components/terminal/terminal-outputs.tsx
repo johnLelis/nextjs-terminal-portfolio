@@ -1,16 +1,11 @@
 export function WelcomeMessage({ theme }: { theme: "dark" | "light" }) {
   const textPrimary = theme === "dark" ? "text-[#cdd6f4]" : "text-[#4c4f69]";
-  const textBlue = theme === "dark" ? "text-[#89b4fa]" : "text-[#1e66f5]";
-  const textYellow = theme === "dark" ? "text-[#f9e2af]" : "text-[#df8e1d]";
-  const textDarker = theme === "dark" ? "text-[#a6e3a1]" : "text-[#179299]";
-  const textSecondaryDark =
-    theme === "dark" ? "text-[#cdd6f4]" : "text-[#5c5f77]";
 
   return (
     <div className={`${textPrimary} space-y-2`}>
       <div className="overflow-x-auto">
         <pre
-          className={`${textBlue} text-[8px] xs:text-[10px] sm:text-xs whitespace-pre`}
+          className={`dark:text-[#89b4fa] text-[#1e66f5] text-[8px] xs:text-[10px] sm:text-xs whitespace-pre`}
         >
           {`
  ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗ 
@@ -22,12 +17,13 @@ export function WelcomeMessage({ theme }: { theme: "dark" | "light" }) {
 `}
         </pre>
       </div>
-      <div className={textDarker}>
+      <div className="dark:text-[#a6e3a1] text-[#179299]">
         Welcome to my interactive portfolio terminal!
       </div>
-      <div className={textSecondaryDark}>
-        Type <span className={textYellow}>{"help"}</span> to see available
-        commands.
+      <div className="dark:text-[#cdd6f4] text-[#3c3f57]">
+        Type{" "}
+        <span className="dark:text-[#f9e2af] text-[#df8e1d]">{"help"}</span> to
+        see available commands.
       </div>
     </div>
   );
