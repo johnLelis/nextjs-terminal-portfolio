@@ -19,11 +19,8 @@ export function Sidebar({ theme }: SidebarProps) {
   const bgSecondary = theme === "dark" ? "bg-[#1e1e2e]" : "bg-[#dce0e8]";
   const borderColor =
     theme === "dark" ? "border-[#313244]" : "border-[#dce0e8]";
-  const textPrimary = theme === "dark" ? "text-[#cdd6f4]" : "text-[#4c4f69]";
-  const textSecondary = theme === "dark" ? "text-[#bac2de]" : "text-[#5c5f77]";
+
   const textTertiary = theme === "dark" ? "text-[#6c7086]" : "text-[#6c6f85]";
-  const textBlue = theme === "dark" ? "text-[#89b4fa]" : "text-[#1e66f5]";
-  const textGreen = theme === "dark" ? "text-[#a6e3a1]" : "text-[#40a02b]";
   const borderBlue = theme === "dark" ? "border-[#89b4fa]" : "border-[#1e66f5]";
   const bgGreen = theme === "dark" ? "bg-[#a6e3a1]" : "bg-[#40a02b]";
   const textRed = theme === "dark" ? "text-[#f38ba8]" : "text-[#d20f39]";
@@ -35,17 +32,21 @@ export function Sidebar({ theme }: SidebarProps) {
     >
       {/* Profile Photo */}
       <div className="flex flex-col items-center gap-3 sm:gap-4">
-        <div className="relative">
+        <div className="relative group">
           <div
-            className={`w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 ${borderBlue} shadow-lg`}
+            className={`w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 ${borderBlue} shadow-lg
+               transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl
+               group-hover:border-[#a6e3a1] dark:group-hover:border-[#a6e3a1] animate-border-glow`}
+            onContextMenu={e => e.preventDefault()}
           >
             <Image
               src="/pen.jpeg"
               width={128}
               height={128}
               alt="Profile"
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover rounded-full select-none pointer-events-none"
               priority
+              onContextMenu={e => e.preventDefault()}
             />
           </div>
           <div
@@ -56,10 +57,10 @@ export function Sidebar({ theme }: SidebarProps) {
         </div>
 
         <div className="text-center">
-          <h2 className={`${textPrimary} text-lg sm:text-xl`}>
+          <h2 className={`text-primary text-lg sm:text-xl`}>
             John Stephene Lelis
           </h2>
-          <p className={`${textBlue} text-sm sm:text-base`}>
+          <p className={`text-blue text-sm sm:text-base`}>
             FullStack Developer
           </p>
         </div>
@@ -67,27 +68,27 @@ export function Sidebar({ theme }: SidebarProps) {
 
       {/* Basic Info */}
       <div className="space-y-3">
-        <div className={`flex items-center gap-3 ${textPrimary}`}>
+        <div className={`flex items-center gap-3 text-primary`}>
           <IconMapPin className={`w-5 h-5 ${textRed} shrink-0 mt-0.5`} />
           <div className="text-sm">
-            <div className={textSecondary}>Mandaluyong City, PH</div>
+            <div className="text-secondary">Mandaluyong City, PH</div>
           </div>
         </div>
 
-        <div className={`flex items-center gap-3 ${textPrimary}`}>
+        <div className={`flex items-center gap-3 text-primary`}>
           <IconBriefcase className={`w-5 h-5 ${textOrange} shrink-0 mt-0.5`} />
           <div className="text-sm">
-            <div className={textSecondary}>Software Engineer</div>
+            <div className="text-secondary">Software Engineer</div>
             <div className={`${textTertiary} text-xs`}>
               Stratpoint Technologies Inc.
             </div>
           </div>
         </div>
 
-        <div className={`flex items-center gap-3 ${textPrimary}`}>
-          <IconCalendar className={`w-5 h-5 ${textGreen} shrink-0 mt-0.5`} />
+        <div className={`flex items-center gap-3 text-primary`}>
+          <IconCalendar className={`w-5 h-5 text-green shrink-0 mt-0.5`} />
           <div className="text-sm">
-            <div className={textSecondary}>4+ Years Experience</div>
+            <div className="text-secondary">4+ Years Experience</div>
           </div>
         </div>
       </div>
@@ -97,18 +98,17 @@ export function Sidebar({ theme }: SidebarProps) {
 
       {/* Contact Links */}
       <div className="space-y-2 sm:space-y-3">
-        <h3
-          className={`${textBlue} text-xs sm:text-sm uppercase tracking-wider`}
-        >
+        <h3 className={`text-blue text-xs sm:text-sm uppercase tracking-wider`}>
           Connect
         </h3>
 
         <a
           href="mailto:johnstephene.lelis@gmail.com"
-          className={`flex items-center gap-2 sm:gap-3 ${textPrimary} hover:${textBlue} transition-colors group`}
+          className={`text-primary hover:text-blue transition-all group contact-link`}
         >
           <div
-            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${bgSecondary} flex items-center justify-center group-hover:${borderColor} transition-colors shrink-0`}
+            className={` ${bgSecondary} contact-icon
+               group-hover:bg-blue group-hover:text-white group-hover:scale-110`}
           >
             <IconMail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
@@ -121,10 +121,11 @@ export function Sidebar({ theme }: SidebarProps) {
           href="https://github.com/johnLelis"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 sm:gap-3 ${textPrimary} hover:${textBlue} transition-colors group`}
+          className={`text-primary hover:text-blue transition-all group contact-link`}
         >
           <div
-            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${bgSecondary} flex items-center justify-center group-hover:${borderColor} transition-colors shrink-0`}
+            className={` ${bgSecondary} contact-icon
+               group-hover:bg-blue group-hover:text-white group-hover:scale-110`}
           >
             <IconBrandGithub className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
@@ -137,10 +138,11 @@ export function Sidebar({ theme }: SidebarProps) {
           href="https://www.linkedin.com/in/john-stephene-lelis/"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 sm:gap-3 ${textPrimary} hover:${textBlue} transition-colors group`}
+          className={`text-primary hover:text-blue transition-all group contact-link`}
         >
           <div
-            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${bgSecondary} flex items-center justify-center group-hover:${borderColor} transition-colors shrink-0`}
+            className={` ${bgSecondary} contact-icon
+               group-hover:bg-blue group-hover:text-white group-hover:scale-110`}
           >
             <IconBrandLinkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
@@ -155,9 +157,7 @@ export function Sidebar({ theme }: SidebarProps) {
 
       {/* Skills Overview */}
       <div className="space-y-2 sm:space-y-3">
-        <h3
-          className={`${textBlue} text-xs sm:text-sm uppercase tracking-wider`}
-        >
+        <h3 className={`text-blue text-xs sm:text-sm uppercase tracking-wider`}>
           Skills
         </h3>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -178,7 +178,7 @@ export function Sidebar({ theme }: SidebarProps) {
           ].map(skill => (
             <span
               key={skill}
-              className={`px-1.5 sm:px-2 py-0.5 sm:py-1 ${bgSecondary} ${textPrimary} text-[10px] sm:text-xs rounded border ${borderColor}`}
+              className={`px-1.5 sm:px-2 py-0.5 sm:py-1 ${bgSecondary} text-primary text-[10px] sm:text-xs rounded border ${borderColor}`}
             >
               {skill}
             </span>
@@ -187,11 +187,16 @@ export function Sidebar({ theme }: SidebarProps) {
       </div>
 
       {/* Status */}
-      <div className={`mt-auto pt-4 sm:pt-6 border-t ${borderColor}`}>
-        <div className="flex items-center gap-2 text-xs sm:text-sm">
+      <div className="flex items-center gap-2 text-xs sm:text-sm group">
+        <div className="relative">
           <div className={`w-2 h-2 ${bgGreen} rounded-full animate-pulse`} />
-          <span className={textGreen}>Available for opportunities</span>
+          <div
+            className={`absolute inset-0 w-2 h-2 ${bgGreen} rounded-full animate-ping opacity-75`}
+          />
         </div>
+        <span className="text-green group-hover:text-[#a6e3a1] transition-colors">
+          Available for opportunities
+        </span>
       </div>
     </div>
   );

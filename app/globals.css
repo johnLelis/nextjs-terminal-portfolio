@@ -751,6 +751,15 @@ html {
   @apply dark:border-[#89b4fa] border-[#1e66f5];
 }
 
+.contact-link {
+  @apply flex items-center gap-2 sm:gap-3 transition-all duration-200 hover:translate-x-1;
+}
+
+.contact-icon {
+  @apply w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center 
+               transition-all duration-200 shrink-0;
+}
+
 /* Terminal Animations */
 @keyframes blink {
   0%,
@@ -853,4 +862,21 @@ html {
   animation: glow-pulse 2s ease-in-out infinite;
   border-radius: 4px;
   padding: 4px;
+}
+
+@keyframes border-glow {
+  0%,
+  100% {
+    border-color: #89b4fa;
+  }
+  33% {
+    border-color: #a6e3a1;
+  }
+  66% {
+    border-color: #cba6f7;
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
 }
