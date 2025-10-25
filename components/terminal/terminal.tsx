@@ -231,7 +231,6 @@ export function Terminal({
       <div
         ref={terminalRef}
         className="flex-1 overflow-y-auto p-3 sm:p-4 font-mono text-xs sm:text-sm relative"
-        onClick={() => inputRef.current?.focus()}
       >
         {history.map((item, index) => (
           <div key={index} className="mb-4">
@@ -249,6 +248,7 @@ export function Terminal({
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
           <Prompt theme={theme} />
           <input
+            id="terminalInput"
             ref={inputRef}
             type="text"
             value={input}
