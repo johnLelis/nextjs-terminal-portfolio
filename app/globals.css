@@ -836,3 +836,21 @@ html {
   );
   background-size: 100% 4px;
 }
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(137, 180, 250, 0.3),
+      0 0 10px rgba(137, 180, 250, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.5),
+      0 0 20px rgba(137, 180, 250, 0.3);
+  }
+}
+
+.prompt-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+  border-radius: 4px;
+  padding: 4px;
+}

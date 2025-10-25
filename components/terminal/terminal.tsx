@@ -37,6 +37,7 @@ export function Terminal({
   onThemeChange,
 }: TerminalProps) {
   const [input, setInput] = useState("");
+  const [suggestion, setSuggestion] = useState("");
   // Initialize history with welcome message directly
   const [history, setHistory] = useState<CommandOutput[]>(() => [
     {
@@ -49,6 +50,18 @@ export function Terminal({
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
+  const commands = [
+    "help",
+    "about",
+    "skills",
+    "projects",
+    "experience",
+    "contact",
+    "theme",
+    "clear",
+    "whoami",
+    "ls",
+  ];
   useEffect(() => {
     // Auto-scroll to bottom
     if (terminalRef.current) {
@@ -87,6 +100,13 @@ export function Terminal({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === "Tab" || e.key === "ArrowRight") && suggestion && input) {
+      e.preventDefault();
+      setInput(suggestion);
+      setSuggestion("");
+      return;
+    }
+
     if (e.key === "ArrowUp") {
       e.preventDefault();
       if (commandHistory.length > 0) {
@@ -244,22 +264,43 @@ export function Terminal({
         ))}
 
         {/* Current Input Line */}
-        <form onSubmit={handleSubmit} className="flex items-center gap-2">
+        <form
+          onSubmit={handleSubmit}
+          className="flex items-center gap-2 prompt-glow"
+        >
           <Prompt theme={theme} />
-          <input
-            id="terminalInput"
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className={`flex-1 bg-transparent ${textPrimary} outline-none ${
-              theme === "dark" ? "caret-[#f5e0dc]" : "caret-[#dc8a78]"
-            }`}
-            aria-label="Command input"
-            autoFocus
-            spellCheck={false}
-          />
+          <div className="relative flex-1">
+            <input
+              id="terminalInput"
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={e => {
+                const val = e.target.value;
+                setInput(val);
+                if (val) {
+                  const match = commands.find(cmd =>
+                    cmd.startsWith(val.toLowerCase())
+                  );
+                  setSuggestion(match || "");
+                } else {
+                  setSuggestion("");
+                }
+              }}
+              onKeyDown={handleKeyDown}
+              className={`w-full bg-transparent text-primary outline-none ${
+                theme === "dark" ? "caret-[#f5e0dc]" : "caret-[#dc8a78]"
+              }`}
+              aria-label="Command input"
+              autoFocus
+              spellCheck={false}
+            />
+            {suggestion && input && (
+              <span className="absolute left-0 pointer-events-none opacity-30">
+                {suggestion}
+              </span>
+            )}
+          </div>
         </form>
       </div>
     </div>
