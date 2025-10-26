@@ -6,7 +6,7 @@ import Status from "./status";
 
 export function Sidebar() {
   return (
-    <div className="w-80 bg-primary border-r border-color p-4 sm:p-6 flex flex-col sm:gap-6 overflow-y-auto h-full ">
+    <div className="w-80 bg-primary border-r border-color p-4 sm:p-6 flex flex-col sm:gap-6 gap-8 overflow-y-auto h-full ">
       <Profile />
       <BasicInfo />
       <ContactLinks />
