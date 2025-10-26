@@ -1,5 +1,6 @@
-import { Theme } from "../app";
-import ThemeIcons from "../theme/theme-icons";
+import { Theme } from "@/components/app";
+import ThemeIcons from "@/components/theme/theme-icons";
+
 interface TerminalHeaderProps {
   currentTheme: Theme;
   onThemeChange: (theme: Theme) => void;

@@ -1,10 +1,10 @@
 "use client";
 import { Theme } from "../app";
+import HistoryItem from "./components/history-item";
+import TerminalHeader from "./components/terminal-header";
+import { TerminalInput } from "./components/terminal-input";
 
-import { TerminalInput } from "./terminal-input";
-import { useTerminal } from "./use-terminal";
-import TerminalHeader from "./terminal-header";
-import HistoryItem from "./history-item";
+import { useTerminal } from "./hooks/use-terminal";
 
 export interface TerminalProps {
   currentTheme: Theme;

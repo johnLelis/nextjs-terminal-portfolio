@@ -1,19 +1,19 @@
 import { useState, useRef, useEffect } from "react";
-import { Theme } from "../app";
+import { Theme } from "../../app";
 
 import {
   SuccessOutput,
   ErrorOutput,
   InfoOutput,
   BlueOutput,
-} from "./command-outputs";
-import WelcomeMessage from "./welcome-message";
-import HelpOutput from "./help-output";
-import AboutOutput from "./about-output";
-import SkillsOutput from "./skills-output";
-import ProjectsOutput from "./projects-output";
-import ExperienceOutput from "./experience-output";
-import ContactOutput from "./contact-output";
+} from "../outputs/command-outputs";
+import WelcomeMessage from "../components/welcome-message";
+import HelpOutput from "../outputs/help-output";
+import AboutOutput from "../outputs/about-output";
+import SkillsOutput from "../outputs/skills-output";
+import ProjectsOutput from "../outputs/projects-output";
+import ExperienceOutput from "../outputs/experience-output";
+import ContactOutput from "../outputs/contact-output";
 
 interface CommandOutput {
   command: string;
