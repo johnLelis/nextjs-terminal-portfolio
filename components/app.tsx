@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useEffectEvent, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "next-themes";
 
 import { Sheet, SheetContent } from "@/components/ui/sheet";
@@ -13,18 +13,6 @@ export type Theme = "dark" | "light" | "system";
 export default function App() {
   const { theme, setTheme } = useTheme();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const onMount = useEffectEvent(() => {
-    setMounted(true);
-  });
-
-  useEffect(() => {
-    onMount();
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div
