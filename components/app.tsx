@@ -11,7 +11,7 @@ import { Terminal } from "@/components/terminal/terminal";
 export type Theme = "dark" | "light" | "system";
 
 export default function App() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const onMount = useEffectEvent(() => {
@@ -25,8 +25,6 @@ export default function App() {
   if (!mounted) {
     return null;
   }
-  // resolvedTheme gives us "dark" or "light" even when theme is "system"
-  const effectiveTheme = (resolvedTheme as "dark" | "light") || "dark";
 
   return (
     <div
@@ -72,17 +70,14 @@ export default function App() {
           </div>
 
           <ThemeIcons
-            theme={effectiveTheme}
             currentTheme={(theme as Theme) || "dark"}
             onThemeChange={newTheme => setTheme(newTheme)}
           />
         </div>
 
         <Terminal
-          theme={effectiveTheme}
           currentTheme={(theme as Theme) || "dark"}
           onThemeChange={newTheme => setTheme(newTheme)}
-          isMobile={false}
         />
       </div>
     </div>
