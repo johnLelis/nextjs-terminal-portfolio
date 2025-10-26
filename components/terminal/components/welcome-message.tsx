@@ -1,3 +1,4 @@
+import Typewriter from "typewriter-effect";
 const WelcomeMessage = () => {
   return (
     <div className={`text-primary space-y-2 animate-in fade-in duration-500`}>
@@ -18,10 +19,20 @@ const WelcomeMessage = () => {
       <div className="dark:text-[#a6e3a1] text-[#179299]">
         Welcome to my interactive portfolio terminal!
       </div>
-      <div className="dark:text-[#cdd6f4] text-[#3c3f57]">
-        Type{" "}
-        <span className="dark:text-[#f9e2af] text-[#df8e1d]">{"help"}</span> to
-        see available commands.
+      <div className="dark:text-[#cdd6f4] text-[#3c3f57] flex gap-[1ch]">
+        <p>Type</p>
+        <span className="dark:text-[#f9e2af] text-[#df8e1d]">
+          <Typewriter
+            options={{
+              strings: "help",
+              autoStart: true,
+              loop: true,
+              delay: 150,
+              deleteSpeed: 150,
+            }}
+          />
+        </span>
+        <p>to see available commands.</p>
       </div>
     </div>
   );
