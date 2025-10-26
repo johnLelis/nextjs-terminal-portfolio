@@ -1,60 +1,58 @@
 import { IconSun, IconMoon, IconDeviceDesktop } from "@tabler/icons-react";
-import type { TerminalProps } from "@/components/terminal/terminal";
+import { Theme } from "@/components/app";
 
-const ThemeIcons = ({ theme, currentTheme, onThemeChange }: TerminalProps) => {
+interface ThemeIconsProps {
+  currentTheme: Theme;
+  onThemeChange: (theme: Theme) => void;
+}
+
+const ThemeIcons = ({ currentTheme, onThemeChange }: ThemeIconsProps) => {
+  const getButtonClass = (themeType: Theme) => {
+    const isActive = currentTheme === themeType;
+
+    if (isActive) {
+      const activeColors = {
+        light: "bg-secondary text-yellow",
+        dark: "bg-secondary text-blue",
+        system: "bg-secondary text-green",
+      };
+      return `p-1.5 rounded transition-colors ${activeColors[themeType]}`;
+    }
+
+    return "p-1.5 rounded transition-colors text-tertiary hover:text-primary hover:bg-secondary";
+  };
+
   return (
-    <>
-      <div className="flex items-center gap-1">
-        <button
-          type="button"
-          onClick={() => onThemeChange("light")}
-          className={`p-1.5 rounded transition-colors ${
-            currentTheme === "light"
-              ? theme === "dark"
-                ? "bg-[#313244] text-[#f9e2af]"
-                : "bg-[#dce0e8] text-[#df8e1d]"
-              : theme === "dark"
-              ? "text-[#6c7086] hover:text-[#cdd6f4] hover:bg-[#313244]"
-              : "text-[#9ca0b0] hover:text-[#4c4f69] hover:bg-[#dce0e8]"
-          }`}
-          title="Light theme"
-        >
-          <IconSun className="w-4 h-4" />
-        </button>
-        <button
-          type="button"
-          onClick={() => onThemeChange("dark")}
-          className={`p-1.5 rounded transition-colors ${
-            currentTheme === "dark"
-              ? theme === "dark"
-                ? "bg-[#313244] text-[#89b4fa]"
-                : "bg-[#dce0e8] text-[#1e66f5]"
-              : theme === "dark"
-              ? "text-[#6c7086] hover:text-[#cdd6f4] hover:bg-[#313244]"
-              : "text-[#9ca0b0] hover:text-[#4c4f69] hover:bg-[#dce0e8]"
-          }`}
-          title="Dark theme"
-        >
-          <IconMoon className="w-4 h-4" />
-        </button>
-        <button
-          type="button"
-          onClick={() => onThemeChange("system")}
-          className={`p-1.5 rounded transition-colors ${
-            currentTheme === "system"
-              ? theme === "dark"
-                ? "bg-[#313244] text-[#a6e3a1]"
-                : "bg-[#dce0e8] text-[#40a02b]"
-              : theme === "dark"
-              ? "text-[#6c7086] hover:text-[#cdd6f4] hover:bg-[#313244]"
-              : "text-[#9ca0b0] hover:text-[#4c4f69] hover:bg-[#dce0e8]"
-          }`}
-          title="System theme"
-        >
-          <IconDeviceDesktop className="w-4 h-4" />
-        </button>
-      </div>
-    </>
+    <div className="flex items-center gap-1">
+      <button
+        type="button"
+        onClick={() => onThemeChange("light")}
+        className={getButtonClass("light")}
+        title="Light theme"
+        aria-label="Light theme"
+      >
+        <IconSun className="w-4 h-4" />
+      </button>
+      <button
+        type="button"
+        onClick={() => onThemeChange("dark")}
+        className={getButtonClass("dark")}
+        title="Dark theme"
+        aria-label="Dark theme"
+      >
+        <IconMoon className="w-4 h-4" />
+      </button>
+      <button
+        type="button"
+        onClick={() => onThemeChange("system")}
+        className={getButtonClass("system")}
+        title="System theme"
+        aria-label="System theme"
+      >
+        <IconDeviceDesktop className="w-4 h-4" />
+      </button>
+    </div>
   );
 };
+
 export default ThemeIcons;
