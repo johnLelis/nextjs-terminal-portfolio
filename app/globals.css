@@ -470,6 +470,25 @@
   --sidebar-accent-foreground: #4c4f69;
   --sidebar-border: #dce0e8;
   --sidebar-ring: #1e66f5;
+
+  --color-text-primary: #4c4f69;
+  --color-text-secondary: #5c5f77;
+  --color-text-tertiary: #6c6f85;
+  --color-green: #40a02b;
+  --color-blue: #1e66f5;
+  --color-yellow: #df8e1d;
+  --color-cyan: #209fb5;
+  --color-pink: #dc8a78;
+  --color-red: #d20f39;
+  --color-orange: #fe640b;
+  --color-purple: #8839ef;
+
+  --color-bg-primary: #e6e9ef;
+  --color-bg-secondary: #dce0e8;
+  --color-bg-tertiary: #eff1f5;
+
+  --color-border-primary: #dce0e8;
+  --color-border-secondary: #e6e9ef;
 }
 
 /* Dark Mode (Catppuccin Mocha) */
@@ -510,6 +529,25 @@
   --sidebar-accent-foreground: #cdd6f4;
   --sidebar-border: #313244;
   --sidebar-ring: #89b4fa;
+
+  --color-text-primary: #cdd6f4;
+  --color-text-secondary: #bac2de;
+  --color-text-tertiary: #6c7086;
+  --color-green: #a6e3a1;
+  --color-blue: #89b4fa;
+  --color-yellow: #f9e2af;
+  --color-cyan: #89dceb;
+  --color-pink: #f5e0dc;
+  --color-red: #f38ba8;
+  --color-orange: #fab387;
+  --color-purple: #cba6f7;
+
+  --color-bg-primary: #181825;
+  --color-bg-secondary: #1e1e2e;
+  --color-bg-tertiary: #1e1e2e;
+
+  --color-border-primary: #313244;
+  --color-border-secondary: #181825;
 }
 
 html {
@@ -527,12 +565,20 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1e66f5 0%, #8839ef 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-blue) 0%,
+    var(--color-purple) 100%
+  );
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #04a5e5 0%, #7287fd 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-cyan) 0%,
+    var(--color-blue) 100%
+  );
 }
 
 .dark ::-webkit-scrollbar-thumb {
@@ -546,7 +592,7 @@ html {
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1e66f5 transparent;
+  scrollbar-color: var(--color-blue) transparent;
 }
 
 .dark * {
@@ -716,75 +762,75 @@ html {
 }
 
 .text-primary {
-  @apply dark:text-[#cdd6f4] text-[#4c4f69];
+  color: var(--color-text-primary);
 }
 
 .text-secondary {
-  @apply dark:text-[#bac2de] text-[#5c5f77];
-}
-
-.text-green {
-  @apply dark:text-[#a6e3a1] text-[#40a02b];
-}
-
-.text-blue {
-  @apply dark:text-[#89b4fa] text-[#1e66f5];
-}
-
-.text-yellow {
-  @apply dark:text-[#f9e2af] text-[#df8e1d];
-}
-
-.text-cyan {
-  @apply dark:text-[#89dceb] text-[#209fb5];
-}
-
-.text-pink {
-  @apply dark:text-[#f5e0dc] text-[#dc8a78];
-}
-
-.text-red {
-  @apply dark:text-[#f38ba8] text-[#d20f39];
-}
-
-.text-orange {
-  @apply dark:text-[#fab387] text-[#fe640b];
+  color: var(--color-text-secondary);
 }
 
 .text-tertiary {
-  @apply dark:text-[#6c7086] text-[#6c6f85];
+  color: var(--color-text-tertiary);
+}
+
+.text-green {
+  color: var(--color-green);
+}
+
+.text-blue {
+  color: var(--color-blue);
+}
+
+.text-yellow {
+  color: var(--color-yellow);
+}
+
+.text-cyan {
+  color: var(--color-cyan);
+}
+
+.text-pink {
+  color: var(--color-pink);
+}
+
+.text-red {
+  color: var(--color-red);
+}
+
+.text-orange {
+  color: var(--color-orange);
 }
 
 .border-green {
-  @apply dark:border-[#a6e3a1] border-[#40a02b];
+  border-color: var(--color-green);
 }
 
 .border-blue {
-  @apply dark:border-[#89b4fa] border-[#1e66f5];
+  border-color: var(--color-blue);
 }
 
 .border-dark {
-  @apply dark:border-[#181825] border-[#e6e9ef];
+  border-color: var(--color-border-secondary);
 }
 
 .border-color {
-  @apply dark:border-[#313244] border-[#dce0e8];
+  border-color: var(--color-border-primary);
 }
 
 .bg-green {
-  @apply dark:bg-[#a6e3a1] bg-[#40a02b];
+  background-color: var(--color-green);
 }
 
 .bg-secondary {
-  @apply dark:bg-[#1e1e2e] bg-[#dce0e8];
+  background-color: var(--color-bg-secondary);
 }
 
 .bg-primary {
-  @apply dark:bg-[#181825] bg-[#e6e9ef];
+  background-color: var(--color-bg-primary);
 }
 
 .bg-color {
-  @apply dark:bg-[#1e1e2e] bg-[#eff1f5];
+  background-color: var(--color-bg-tertiary);
 }
 
 .contact-link {
@@ -793,7 +839,7 @@ html {
 
 .contact-icon {
   @apply w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center 
-               transition-all duration-200 shrink-0;
+         transition-all duration-200 shrink-0;
 }
 
 /* Terminal Animations */
@@ -885,12 +931,12 @@ html {
 @keyframes glow-pulse {
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(137, 180, 250, 0.3),
-      0 0 10px rgba(137, 180, 250, 0.2);
+    box-shadow: 0 0 5px color-mix(in srgb, var(--color-blue) 30%, transparent),
+      0 0 10px color-mix(in srgb, var(--color-blue) 20%, transparent);
   }
   50% {
-    box-shadow: 0 0 10px rgba(137, 180, 250, 0.5),
-      0 0 20px rgba(137, 180, 250, 0.3);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--color-blue) 50%, transparent),
+      0 0 20px color-mix(in srgb, var(--color-blue) 30%, transparent);
   }
 }
 
@@ -903,13 +949,13 @@ html {
 @keyframes border-glow {
   0%,
   100% {
-    border-color: #89b4fa;
+    border-color: var(--color-blue);
   }
   33% {
-    border-color: #a6e3a1;
+    border-color: var(--color-green);
   }
   66% {
-    border-color: #cba6f7;
+    border-color: var(--color-purple);
   }
 }
 
