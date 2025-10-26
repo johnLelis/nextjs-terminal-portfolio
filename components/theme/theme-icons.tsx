@@ -1,5 +1,7 @@
+"use client";
 import { IconSun, IconMoon, IconDeviceDesktop } from "@tabler/icons-react";
 import { Theme } from "@/components/app";
+import { useState, useEffect, useEffectEvent } from "react";
 
 interface ThemeIconsProps {
   currentTheme: Theme;
@@ -7,6 +9,16 @@ interface ThemeIconsProps {
 }
 
 const ThemeIcons = ({ currentTheme, onThemeChange }: ThemeIconsProps) => {
+  const [mounted, setMounted] = useState(false);
+
+  const onMount = useEffectEvent(() => {
+    setMounted(true);
+  });
+
+  useEffect(() => {
+    onMount();
+  }, []);
+
   const getButtonClass = (themeType: Theme) => {
     const isActive = currentTheme === themeType;
 
@@ -21,6 +33,8 @@ const ThemeIcons = ({ currentTheme, onThemeChange }: ThemeIconsProps) => {
 
     return "p-1.5 rounded transition-colors text-tertiary hover:text-primary hover:bg-secondary";
   };
+
+  if (!mounted) return null;
 
   return (
     <div className="flex items-center gap-1">

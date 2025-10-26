@@ -1,7 +1,7 @@
 const SkillsOutput = () => {
   const skills = {
     languages: ["JavaScript/TypeScript"],
-    frontend: ["ReactJs", "NextJs", "Tailwind CSS"],
+    frontend: ["ReactJs", "NextJs", "Tailwind CSS", "Shadcn"],
     backend: ["NodeJs", "Express", "NestJs", "Awilix", "PostgreSQL", "MongoDB"],
     auth: ["Better-Auth", "JWT", "OAuth"],
     tools: ["Git", "Docker", "AWS", "Vercel", "Figma"],
