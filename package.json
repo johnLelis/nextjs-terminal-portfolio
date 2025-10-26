@@ -2,6 +2,11 @@
   "name": "terminal-portfolio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "John Stephene Lelis",
+    "email": "johnstephene.lelis@gmail.com",
+    "url": "https://pen-lelis.vercel.app"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
