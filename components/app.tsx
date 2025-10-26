@@ -28,27 +28,19 @@ export default function App() {
   // resolvedTheme gives us "dark" or "light" even when theme is "system"
   const effectiveTheme = (resolvedTheme as "dark" | "light") || "dark";
 
-  const bgColor = effectiveTheme === "dark" ? "bg-[#1e1e2e]" : "bg-[#eff1f5]";
-  const borderColor =
-    effectiveTheme === "dark" ? "border-[#313244]" : "border-[#dce0e8]";
-  const bgSecondary =
-    effectiveTheme === "dark" ? "bg-[#181825]" : "bg-[#e6e9ef]";
-  const textPrimary =
-    effectiveTheme === "dark" ? "text-[#cdd6f4]" : "text-[#4c4f69]";
-
   return (
     <div
-      className={`min-h-screen ${bgColor} flex items-center justify-center p-2 sm:p-4`}
+      className={`min-h-screen bg-color flex items-center justify-center p-2 sm:p-4`}
     >
       <div
-        className={`w-full max-w-7xl h-[calc(100svh-1rem)] sm:h-[700px] ${bgColor}
-          rounded-lg shadow-2xl border ${borderColor}
+        className={`w-full max-w-7xl h-[calc(100svh-1rem)] sm:h-[700px] bg-color
+          rounded-lg shadow-2xl border border-color
           overflow-x-hidden overflow-y-visible
           flex flex-col md:flex-row`}
       >
         {/* Desktop Sidebar */}
         <div className="hidden md:block">
-          <Sidebar theme={effectiveTheme} />
+          <Sidebar />
         </div>
 
         {/* Mobile Sidebar - Sheet */}
@@ -56,26 +48,26 @@ export default function App() {
           <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
             <SheetContent
               side="left"
-              className={`${bgSecondary} ${borderColor} p-0 w-80`}
+              className={`bg-primary border-color p-0 w-80`}
             >
-              <Sidebar theme={effectiveTheme} />
+              <Sidebar />
             </SheetContent>
           </Sheet>
         </div>
 
         {/* Mobile Header with Menu Button */}
         <div
-          className={`md:hidden ${bgSecondary} px-4 py-3 flex items-center gap-3 border-b ${borderColor}`}
+          className={`md:hidden bg-primary px-4 py-3 flex items-center gap-3 border-b border-color`}
         >
           <button
             title="Menu"
             type="button"
             onClick={() => setSidebarOpen(true)}
-            className={`p-2 rounded-lg ${bgColor} ${textPrimary} hover:opacity-80 transition-opacity`}
+            className={`p-2 rounded-lg bg-color text-primary hover:opacity-80 transition-opacity`}
           >
             <IconMenu2 className="w-5 h-5" />
           </button>
-          <div className={`${textPrimary} text-sm flex-1`}>
+          <div className={`text-primary text-sm flex-1`}>
             penLelis@terminal ~ zsh
           </div>
 

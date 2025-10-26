@@ -743,12 +743,48 @@ html {
   @apply dark:text-[#f5e0dc] text-[#dc8a78];
 }
 
+.text-red {
+  @apply dark:text-[#f38ba8] text-[#d20f39];
+}
+
+.text-orange {
+  @apply dark:text-[#fab387] text-[#fe640b];
+}
+
+.text-tertiary {
+  @apply dark:text-[#6c7086] text-[#6c6f85];
+}
+
 .border-green {
   @apply dark:border-[#a6e3a1] border-[#40a02b];
 }
 
 .border-blue {
   @apply dark:border-[#89b4fa] border-[#1e66f5];
+}
+
+.border-dark {
+  @apply dark:border-[#181825] border-[#e6e9ef];
+}
+
+.border-color {
+  @apply dark:border-[#313244] border-[#dce0e8];
+}
+
+.bg-green {
+  @apply dark:bg-[#a6e3a1] bg-[#40a02b];
+}
+
+.bg-secondary {
+  @apply dark:bg-[#1e1e2e] bg-[#dce0e8];
+}
+
+.bg-primary {
+  @apply dark:bg-[#181825] bg-[#e6e9ef];
+}
+
+.bg-color {
+  @apply dark:bg-[#1e1e2e] bg-[#eff1f5];
 }
 
 .contact-link {
