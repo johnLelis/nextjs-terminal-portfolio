@@ -23,14 +23,18 @@ const BasicInfo = () => {
       <div className={`flex items-center gap-3 text-primary`}>
         <IconMapPin className={`w-5 h-5 text-red shrink-0 mt-0.5`} />
         <div className="text-sm">
-          <div className="text-secondary">Mandaluyong City, PH</div>
+          <div className="text-secondary">
+            {process.env.NEXT_PUBLIC_LOCATION || "Mandaluyong City, PH"}
+          </div>
         </div>
       </div>
 
       <div className={`flex items-center gap-3 text-primary`}>
         <IconBriefcase className={`w-5 h-5 text-orange shrink-0 mt-0.5`} />
         <div className="text-sm">
-          <div className="text-secondary">Software Engineer</div>
+          <div className="text-secondary">
+            {process.env.NEXT_PUBLIC_JOB_TITLE || "Software Engineer"}
+          </div>
           <div className={`text-tertiary text-xs`}>
             {process.env.NEXT_PUBLIC_COMPANY_NAME || "Current Company"}
           </div>
