@@ -8,8 +8,10 @@ const ProjectsOutput = () => {
         <div className="space-y-1">
           <div className="text-yellow">📦 Next.js 15 Boilerplate</div>
           <div className={`text-secondary text-sm pl-4`}>
-            A production-ready starter template for Next.js 15 with app router,
-            server actions, and best practices
+            A production-ready starter template for NextJs 15 featuring Better
+            Auth, Azure integration, TypeScript, ESLint, Prettier, and vitest
+            testing setup. Accelerate your development with production-ready
+            architecture.
           </div>
           <div className={`text-cyan text-sm pl-4`}>
             Repo:
