@@ -21,7 +21,7 @@ const WelcomeMessage = () => {
       </div>
       <div className="dark:text-[#cdd6f4] text-[#3c3f57] flex gap-[1ch]">
         <p>Type</p>
-        <span className="dark:text-[#f9e2af] text-[#df8e1d]">
+        <span className="dark:text-[#f9e2af] text-[#df8e1d] inline-block w-[4ch]">
           <Typewriter
             options={{
               strings: "help",
