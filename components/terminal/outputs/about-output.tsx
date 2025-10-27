@@ -5,19 +5,15 @@ const AboutOutput = () => {
     >
       <div className="text-blue">$ cat about.txt</div>
       <div className={`space-y-2 pl-4 border-l-2 border-blue`}>
-        <p className="text-pink">{`Hey there! I'm a Full-Stack Developer 👋`}</p>
+        <p className="text-pink">{`Hey there! I'm Pen 👋`}</p>
         <p>
-          {`I'm passionate about creating elegant solutions to complex problems.
-          With a strong foundation in both frontend and backend technologies, I
-          love building web applications that are not only functional but also
-          delightful to use.`}
+          {`A full-stack developer who enjoys tackling challenging problems and building web applications that work well and feel good to use. My experience spans both frontend and backend development, which helps me think through projects from every angle.`}
         </p>
         <p>
-          {`  When I'm not building software, you'll find me exploring new tech,
-          playing chess, or grinding ranked in Dota 2.`}
+          {`Outside of work, I keep up with emerging technologies, play chess to sharpen my strategic thinking, and unwind with some competitive Dota 2.`}
         </p>
         <p className="text-green">
-          🎯 Currently focused on modern web technologies and cloud architecture
+          Currently focused on modern web technologies and cloud architecture
         </p>
       </div>
     </div>
