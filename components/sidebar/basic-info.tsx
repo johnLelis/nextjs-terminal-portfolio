@@ -32,7 +32,7 @@ const BasicInfo = () => {
         <div className="text-sm">
           <div className="text-secondary">Software Engineer</div>
           <div className={`text-tertiary text-xs`}>
-            Stratpoint Technologies Inc.
+            {process.env.NEXT_PUBLIC_COMPANY_NAME || "Current Company"}
           </div>
         </div>
       </div>
