@@ -994,7 +994,7 @@ html {
 }
 
 .scroll-button-top {
-  top: 4rem;
+  top: 1rem;
   animation: bounce-down 2s ease-in-out infinite;
 }
 

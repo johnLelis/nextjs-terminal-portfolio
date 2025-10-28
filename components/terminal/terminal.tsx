@@ -59,9 +59,7 @@ export function Terminal({ currentTheme, onThemeChange }: TerminalProps) {
       />
 
       <div className="flex-1 relative">
-        <div
-          className={`scroll-indicator-top ${showTopButton ? "visible" : ""}`}
-        />
+        <div className={`${showTopButton ? "visible" : ""}  `} />
 
         <div
           ref={terminalRef}
@@ -86,11 +84,7 @@ export function Terminal({ currentTheme, onThemeChange }: TerminalProps) {
           />
         </div>
 
-        <div
-          className={`scroll-indicator-bottom ${
-            showBottomButton ? "visible" : ""
-          }`}
-        />
+        <div className={` ${showBottomButton ? "visible" : ""}`} />
 
         {showTopButton && (
           <button
